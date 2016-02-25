@@ -10,7 +10,7 @@ module.exports = function (gulp, $) {
       .pipe($.print())
       .pipe($.sourcemaps.init({ loadMaps: true }))
       .pipe($.less({
-        paths: [ './node_modules/bootstrap/less' ]
+        paths: [ __dirname + '/../../node_modules/bootstrap/less' ]
       }))
       .pipe($.autoprefixer({
         browsers: ['> 1%', 'last 2 versions'],
