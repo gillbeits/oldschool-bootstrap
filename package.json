@@ -15,7 +15,7 @@
   "private": true,
   "author": "",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "bootstrap": "^3.3.6",
     "connect-livereload": "^0.5.4",
     "express": "^4.13.4",
