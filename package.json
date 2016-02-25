@@ -12,6 +12,7 @@
   "bin": {
     "oldschool-bootstrap": "bin/oldschool-bootstrap"
   },
+  "private": true,
   "author": "",
   "license": "ISC",
   "devDependencies": {
