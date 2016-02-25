@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+
+"use strict";
+process.title = 'oldschool-bootstrap';
+
+
+var gulpfile = require('../gulpfile.js'),
+  gulp = gulpfile.gulp,
+  util = require('gulp-util'),
+  fs = require('fs'),
+  runSequence = require('run-sequence')
+;
+
+gulp.start.apply(gulp, runSequence(gulpfile.$._TASKS));
