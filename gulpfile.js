@@ -47,6 +47,8 @@ yargs
   .wrap(yargs.terminalWidth())
 ;
 
+plugins._path            = require('path');
+
 plugins._ENV             = yargs.argv.env;
 plugins._PORT            = yargs.argv.port;
 plugins._LIVERELOAD_PORT = yargs.argv.livePort;
@@ -54,8 +56,7 @@ plugins._BUILD_DIR       = yargs.argv.buildDir;
 plugins._SOURCE_DIR      = yargs.argv.sourceDir;
 plugins._OPEN            = yargs.argv.openInBrowser;
 plugins._START_SERVER    = yargs.argv.startServer;
-plugins._APP_BASE        = '/' + plugins._BUILD_DIR + '/' + plugins._ENV;
-plugins._path            = require('path');
+plugins._APP_BASE        = plugins._path.join(plugins._BUILD_DIR, plugins._ENV);
 plugins._TASKS           = yargs.argv._.length ? yargs.argv._ : ["watch"];
 
 // jshint ignore: start

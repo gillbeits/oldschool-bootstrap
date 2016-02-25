@@ -29,7 +29,7 @@ module.exports = function (gulp, $) {
     server.use(
       "/",
       connectLivereload({ port: $._LIVERELOAD_PORT }),
-      express.static(process.cwd() + $._APP_BASE)
+      express.static($._APP_BASE)
     );
     server.listen($._PORT, function () {
       if ($._OPEN && $._START_SERVER) {
