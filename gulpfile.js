@@ -1,5 +1,5 @@
 var
-  taskPath = './tools/gulp-task/',
+  taskPath = __dirname + '/tools/gulp-task/',
   yargs    = require('yargs'),
   gulp     = require('gulp'),
   plugins  = require('gulp-load-plugins')()
