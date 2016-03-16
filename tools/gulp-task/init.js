@@ -5,10 +5,9 @@ module.exports = function (gulp, $) {
     "use strict";
 
     gulp.task('init', function () {
+        var yargs = require('yargs');
         return gulp.src('template/**/*')
-            .pipe($.print())
-            .pipe(gulp.dest(process.cwd()))
+            .pipe(gulp.dest($._path.join(process.cwd(), yargs.argv.dir || '')))
         ;
     });
-
 };

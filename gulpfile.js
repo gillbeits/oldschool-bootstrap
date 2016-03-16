@@ -24,8 +24,9 @@ yargs
         s: 'source-dir',
         l: 'live-port'
     })
-    .command('init', 'Init bootstrap skeleton for development')
+    .command('init [dir]', 'Init bootstrap skeleton for development')
     .command('watch', 'Start watchers for development with/without LiveReload Server')
+    .command('gulp', 'Start one or more gulp tasks')
     .describe({
         e: 'Build environment',
         S: 'Start Express server',
@@ -60,7 +61,7 @@ plugins._SOURCE_DIR = yargs.argv.sourceDir;
 plugins._OPEN = yargs.argv.openInBrowser;
 plugins._START_SERVER = yargs.argv.startServer;
 plugins._APP_BASE = plugins._path.join(plugins._BUILD_DIR, plugins._ENV);
-plugins._TASKS = yargs.argv._.length ? yargs.argv._ : ["watch"];
+plugins._TASKS = yargs.argv._.length ? (yargs.argv._[0] == 'gulp' ? yargs.argv._.slice(1) : yargs.argv._.slice(0, 1)) : ["watch"];
 
 // jshint ignore: start
 var fs = require('fs');
