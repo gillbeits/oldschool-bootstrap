@@ -1,7 +1,8 @@
 module.exports = function (gulp, $) {
   "use strict";
 
-  gulp.task('watch', ['less', 'jade', 'serve'], function () {
+  gulp.task('watch', ['images', 'less', 'jade', 'serve'], function () {
+    gulp.watch([$._path.join($._SOURCE_DIR, 'jade/**/*.{gif,png,jpeg,jpg,svg,swf}')], ['images']);
     gulp.watch([$._path.join($._SOURCE_DIR, 'jade/**/*.jade')], ['jade']);
     gulp.watch([$._path.join($._SOURCE_DIR, 'less/**/*.less')], ['less']);
 
