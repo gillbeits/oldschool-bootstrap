@@ -5,7 +5,7 @@ module.exports = function (gulp, $) {
   "use strict";
 
   gulp.task('less', function () {
-    return gulp.src($._path.join($._SOURCE_DIR, 'less/index.less'))
+    return gulp.src([$._path.join($._SOURCE_DIR, 'less/*.less'), '!' + $._path.join($._SOURCE_DIR, 'less/variables.less')])
       .pipe($.plumber())
       .pipe($.print())
       .pipe($.sourcemaps.init({ loadMaps: true }))
@@ -16,7 +16,6 @@ module.exports = function (gulp, $) {
         browsers: ['> 1%', 'last 2 versions'],
         cascade: false
       }))
-      .pipe($.rename('styles.css'))
       .pipe($.sourcemaps.write('../maps', { sourceRoot: '/less' }))
       .pipe(gulp.dest($._path.join($._BUILD_DIR, $.get_env(), 'css', 'app')))
       ;
