@@ -6,8 +6,10 @@ module.exports = function (gulp, $) {
 
     gulp.task('init', function () {
         var yargs = require('yargs');
+        var dest = $._path.join(process.cwd(), yargs.argv.dir || '');
         return gulp.src($._path.join(__dirname + '/../../template/**/*'))
-            .pipe(gulp.dest($._path.join(process.cwd(), yargs.argv.dir || '')))
+            .pipe($.print())
+            .pipe(gulp.dest(dest))
         ;
     });
 };

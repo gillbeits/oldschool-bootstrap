@@ -18,6 +18,6 @@ module.exports = function (gulp, $) {
       }))
       .pipe($.sourcemaps.write('../maps', { sourceRoot: '/less' }))
       .pipe(gulp.dest($._path.join($._BUILD_DIR, $.get_env(), 'css', 'app')))
-      ;
+    ;
   });
 };

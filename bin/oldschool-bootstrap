@@ -8,7 +8,17 @@ var gulpfile = require('../gulpfile.js'),
   gulp = gulpfile.gulp,
   util = require('gulp-util'),
   fs = require('fs'),
+  yargs = require('yargs'),
   runSequence = require('run-sequence')
 ;
 
-gulp.start.apply(gulp, runSequence(gulpfile.$._TASKS));
+switch (yargs.argv._[0]) {
+    case 'typings':
+        require('child_process').exec('npm run typings -- ' + yargs.argv._.slice(1).join(" "), function (error, stdout, stderr) {
+            console.log(stdout);
+        });
+        break;
+    default:
+        gulp.start.apply(gulp, runSequence(gulpfile.$._TASKS));
+        break;
+}
