@@ -7,7 +7,7 @@ module.exports = function (gulp, $) {
       pretty: $.$$is_dev() ? true : false
     };
 
-    return gulp.src($._path.join($._SOURCE_DIR, 'jade/**/*.jade'))
+    return gulp.src($._path.join($._SOURCE_DIR, 'jade/*.jade'))
       .pipe($.print())
       .pipe($.jade(jadeOpts))
       .pipe($.$$is_dev() ? $.util.noop() : $.if('*.html', $.htmlmin({collapseWhitespace: true})))

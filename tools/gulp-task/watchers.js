@@ -3,7 +3,7 @@ module.exports = function (gulp, $) {
 
   gulp.task('watch', ['build', 'serve'], function () {
     gulp.watch([$._path.join($._SOURCE_DIR, 'i/**/*.{gif,png,jpeg,jpg,svg,swf}')], ['images']);
-    gulp.watch([$._path.join($._SOURCE_DIR, 'jade/**/*.jade')], ['jade']);
+    gulp.watch([$._path.join($._SOURCE_DIR, 'jade/*.jade')], ['jade']);
     gulp.watch([$._path.join($._SOURCE_DIR, 'less/**/*.less')], ['less']);
     gulp.watch([$._path.join($._SOURCE_DIR, 'typescript/**/*.ts')], ['ts']);
 
