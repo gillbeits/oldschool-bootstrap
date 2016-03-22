@@ -14,7 +14,7 @@ var gulpfile = require('../gulpfile.js'),
 
 switch (yargs.argv._[0]) {
     case 'typings':
-        require('child_process').exec('npm run typings -- ' + yargs.argv._.slice(1).join(" "), function (error, stdout, stderr) {
+        require('child_process').exec(__dirname + '/../node_modules/.bin/typings -- ' + yargs.argv._.slice(1).join(" "), function (error, stdout, stderr) {
             console.log(stdout);
         });
         break;
